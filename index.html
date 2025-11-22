@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ichiban, Take Your Meds!</title>
+
+  <!-- PWA + icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <meta name="theme-color" content="#ff99cc">
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Optional pixel-style font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="title-block">
+        <h1>Ichiban, Take Your Meds!</h1>
+        <p class="subtitle">
+          Help <span class="pet-name">Pipi</span>’s little world grow by logging your meds 💊✨
+        </p>
+      </div>
+
+      <div class="header-right">
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Care Stars</span>
+            <span class="stat-value" id="star-count">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Streak (full days)</span>
+            <span class="stat-value" id="streak-count">0</span>
+          </div>
+        </div>
+
+        <!-- Music toggle button -->
+        <button id="music-btn" class="icon-button music-button" title="Toggle music">
+          <span id="music-icon" class="pixel-music">🎵</span>
+        </button>
+
+        <!-- Settings button -->
+        <button id="settings-btn" class="icon-button" title="Settings">
+          <span class="pixel-gear">⚙</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="world-panel">
+        <div class="pipi-world">
+          <div class="pipi-room">
+            <!-- Pixel palms / plants -->
+            <div class="palm palm-1"></div>
+            <div class="palm palm-2"></div>
+
+            <!-- Pixel butterflies -->
+            <div class="butterfly butterfly-1"></div>
+            <div class="butterfly butterfly-2"></div>
+            <div class="butterfly butterfly-3"></div>
+
+            <div class="pipi" id="pipi">
+              <div class="pipi-face">｡◕‿◕｡</div>
+            </div>
+            <div class="pipi-bed"></div>
+            <div class="pipi-plant"></div>
+          </div>
+        </div>
+        <div class="world-text">
+          <p id="world-message">
+            Every med you log gives <span class="pet-name">Pipi</span> a Care Star and brightens the room 🌸
+          </p>
+          <p class="today-date" id="today-date"></p>
+        </div>
+      </section>
+
+      <section class="tasks-panel">
+        <h2>Today’s Care Quests</h2>
+
+        <div id="task-list">
+          <!-- Tasks will be inserted here by script.js -->
+        </div>
+
+        <div class="daily-status" id="daily-status"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        Missing a dose doesn’t mean you failed. This little world is patient. 🩷
+      </p>
+    </footer>
+  </div>
+
+  <div id="star-burst">⭐</div>
+
+  <!-- Settings modal + overlay -->
+  <div id="settings-overlay" class="overlay hidden"></div>
+
+  <div id="settings-modal" class="modal hidden">
+    <h3>Settings</h3>
+    <p class="modal-note">
+      Personalise your pet and manage your progress.
+    </p>
+
+    <label for="pet-name-input" class="modal-label">Pet name</label>
+    <input
+      id="pet-name-input"
+      class="modal-input"
+      type="text"
+      maxlength="16"
+      placeholder="e.g. Pipi, Momo, Bean"
+    />
+
+    <button id="save-name-btn" class="secondary-button">
+      Save name
+    </button>
+
+    <hr style="margin: 12px 0; border: none; border-top: 1px dashed #f5b9d8;" />
+
+    <button id="reset-progress-btn" class="danger-button">
+      Reset all progress (stars, streak, logs)
+    </button>
+
+    <p class="modal-warning">
+      Only use this if the schedule changes or you want to start completely fresh.
+    </p>
+
+    <button id="close-settings-btn" class="secondary-button">
+      Close
+    </button>
+  </div>
+
+  <!-- Background music (put a file named music.mp3 in the same folder) -->
+  <audio id="bg-music" src="music.mp3" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

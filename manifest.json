@@ -1,0 +1,16 @@
+{
+  "name": "Ichiban, Take Your Meds!",
+  "short_name": "Ichiban",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffe6f2",
+  "theme_color": "#ff99cc",
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
