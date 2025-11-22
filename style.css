@@ -20,14 +20,16 @@ body {
   display: flex;
   min-height: 100vh;
   justify-content: center;
-  align-items: stretch;
 }
 
+/* App container */
 .app {
-  max-width: 1000px;
   width: 100%;
-  padding: 16px;
+  max-width: 900px;
+  padding: 12px 12px 16px;
 }
+
+/* HEADER */
 
 .app-header {
   display: flex;
@@ -60,14 +62,14 @@ body {
 
 .stats {
   display: flex;
-  gap: 12px;
+  gap: 8px;
 }
 
 .stat {
   background: var(--card-bg);
   border: 2px solid var(--border-soft);
   border-radius: 10px;
-  padding: 8px 12px;
+  padding: 8px 10px;
   min-width: 110px;
   text-align: center;
   box-shadow: 0 4px 0 #f5b9d8;
@@ -126,21 +128,12 @@ body {
   text-shadow: 0 1px #ff7db8;
 }
 
+/* MAIN LAYOUT */
+
 .app-main {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 16px;
-}
-
-@media (max-width: 800px) {
-  .app-main {
-    grid-template-columns: 1fr;
-  }
-
-  .app-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
 
 .world-panel,
@@ -619,4 +612,85 @@ body {
 .secondary-button:active {
   transform: translateY(2px);
   box-shadow: 0 1px 0 #f5b9d8;
+}
+
+/* ===== MOBILE LAYOUT TWEAKS ===== */
+
+@media (max-width: 768px) {
+  .app {
+    max-width: 520px;
+    padding: 10px 10px 14px;
+  }
+
+  .app-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .title-block h1 {
+    font-size: 14px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .header-right {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .stats {
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .stat {
+    flex: 1;
+    min-width: 0;
+    padding: 6px 6px;
+  }
+
+  .stat-value {
+    font-size: 16px;
+  }
+
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+
+  .world-panel,
+  .tasks-panel {
+    padding: 12px;
+  }
+
+  .pipi-room {
+    height: 170px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-block h1 {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .pipi-room {
+    height: 160px;
+  }
+
+  .task-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
